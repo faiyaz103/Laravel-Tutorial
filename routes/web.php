@@ -18,7 +18,7 @@ Route::get('/posts/{id}', function($id){
     return response('Post '.$id);
 })->where('id','[0-9]+'); //Putting constraints
 
-//Request and Query Params
+//Request and Query Params (link: http://127.0.0.1:8000/search?name=faiyaz&city=khulna)
 Route::get('/search',function(Request $request){
     // dd($request);
     return $request->name .' '. $request->city;

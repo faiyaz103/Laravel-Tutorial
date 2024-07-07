@@ -3,9 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/hello', function () {
     return response('<h1>Hello World</h1>') //can render html code blocks
@@ -22,5 +22,25 @@ Route::get('/posts/{id}', function($id){
 Route::get('/search',function(Request $request){
     // dd($request);
     return $request->name .' '. $request->city;
+});
+
+Route::get('/', function(){
+    return view('listings',
+        [
+            'heading'=>'Latest Listings',
+            'listings'=>[
+                [
+                    'id'=>1,
+                    'title'=>'Listing One',
+                    'description'=>'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, commodi.'
+                ],
+                [
+                    'id'=>2,
+                    'title'=>'Listing Two',
+                    'description'=>'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, commodi.'
+                ]
+            ]
+        ]
+    );
 });
 

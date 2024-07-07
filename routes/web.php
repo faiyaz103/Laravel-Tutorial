@@ -30,7 +30,7 @@ Route::get('/listings', function(){
     return view('listings',
         [
             'heading'=>'Latest Listings',
-            'listings'=> Listing::getall()
+            'listings'=> Listing::all()
         ]
     );
 });
